@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>몽구스 서버</title>
+    <style>
+        table { border: 1px solid black; border-collapse: collapse; }
+        table th, table td { border: 1px solid black; }
+    </style>
+</head>
+<body>
+    <div>
+        <form id="user-form">
+        <fieldset>
+            <legend>사용자 등록</legend>
+            <div><input id="usernsme" type="text" placeholder="이름"></div>
+            <div><input id="age" type="number" placeholder="나이"></div>
+            <div><input id="married" type="checkbox"><label for="married">결혼여부</label></div>
+            <button type="submit">등록</button>
+        </fieldset>
+        </form>
+    </div>
+    <br>
+    <table id="user-list">
+        <thead>
+            <tr>
+                <td>아이디</td>
+                <td>이름</td>
+                <td>나이</td>
+                <td>결혼여부</td>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.age}}</td>
+                <td>{{'기혼' if user.married else '미혼'}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <div>
+        <form id="comment-form">
+        <fieldset>
+            <legend>댓글 등록</legend>
+            <div><input id="userid" type="text" placeholder="사용자 아이디"></div>
+            <div><input id="comment" type="text" placeholder="댓글"></div>
+            <button type="submit">등록</button>
+        </fieldset>
+        </form>
+    </div>
+    <br>
+    <table id="comment-List">
+        <thead>
+            <tr>
+                <td>아이디</td>
+                <td>작성자</td>
+                <td>댓글</td>
+                <td>수정</td>
+                <td>삭제</td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/mongoose.js"></script>
+</body>
+</html>
