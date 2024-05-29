@@ -7,7 +7,7 @@ const { Schema } = mongoose;
 const { Types: { ObjectId } } = Schema;
 
 //
-const commrntSchima = new Schema({
+const commentSchema = new Schema({
     //
     commenter: {
         type: ObjectId, //
@@ -27,4 +27,4 @@ const commrntSchima = new Schema({
 })
 
 //
-module.exports = mongoose.model('Comment', userSchema);
+module.exports = mongoose.model('Comment', commentSchema);
